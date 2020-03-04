@@ -4,6 +4,11 @@ const { distanceBetweenPositionsMiles } = require('./distance');
 
 const domain = 'https://bpdts-test-app.herokuapp.com/';
 
+/**
+ * convert user object from api to name, email and position
+ * @param {object} obj user object
+ * @return {object}
+ */
 const convertBpdtsUserObj = (obj) => ({
 	name: `${obj.first_name} ${obj.last_name}`,
 	email: obj.email,
@@ -11,12 +16,28 @@ const convertBpdtsUserObj = (obj) => ({
 	longitude: obj.longitude,
 });
 
+/**
+ * convert array of users to new object
+ * @param {array} data
+ * @return {array}
+ */
 const convertBpdtsUserData = (data) => (data.map((user) => convertBpdtsUserObj(user)));
 
+/**
+ * Takes array of users and removes any duplicate entries
+ * @param {array} users
+ * @return {array} filtered array
+ */
 const uniqueUserList = (users) => (
 	users.filter((v, i, a) => a.findIndex((t) => (t.email === v.email)) === i)
 );
 
+/**
+ * Takes a user list as an array and checks each position is within the chosen distance
+ * @param {string} city
+ * @param {number} distanceMiles
+ * @return {array} array of users
+ */
 const usersNearCity = (city, distanceMiles) => axios.get(`${domain}users`)
 	.then((response) => {
 		const users = response.data;
@@ -37,10 +58,14 @@ const usersNearCity = (city, distanceMiles) => axios.get(`${domain}users`)
 		throw new Error(error);
 	});
 
+/**
+ * Get a list of users who are registered living in the selected city
+ * @param {string} city
+ * @return {array} array of user objects
+ */
 const usersInCity = (city) => axios.get(`${domain}city/${city}/users`)
 	.then((response) => convertBpdtsUserData(response.data))
 	.catch((error) => {
-		console.log(`Error on domain: ${domain}city/${city}/users`);
 		throw new Error(error);
 	});
 

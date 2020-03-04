@@ -4,7 +4,7 @@
   "scripts": {
     "start": "nodemon server.js",
     "lint": "eslint src/**/*.js",
-    "test": "jest --coverage --env=node --runInBand "
+    "test": "jest --coverage --env=node --runInBand"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -20,7 +20,6 @@
     "jest": "^25.1.0",
     "jest-environment-jsdom": "^24.9.0",
     "jest-environment-jsdom-global": "^1.1.0",
-    "nock": "^11.7.0",
     "supertest": "^4.0.2"
   },
   "nodemonConfig": {

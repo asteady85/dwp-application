@@ -1,6 +1,5 @@
 const app = require('express')();
 const functions = require('./utils/functions');
-// const { uniqueUserList, usersInCity, usersNearCity } = require('./utils/functions');
 
 /**
  * No output for root
