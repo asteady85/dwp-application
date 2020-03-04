@@ -8,7 +8,7 @@ To get a local copy up and running follow the steps below:
 1. Open NodeJS Command Prompt
 2. Clone the repo to a directory of your choice
 ```sh
-git clone https://github.com/asteady85/dwp_test.git
+git clone https://github.com/asteady85/dwp-application.git
 ```
 3. Install NPM packages
 ```sh
@@ -19,14 +19,14 @@ npm install
 1. Open NodeJS Command Prompt
 2. cd to root directory of project
 3. Run command `npm start`
-4. Open a new tab in your browser and navigate to the following address `http://localhost:8080`
+4. The application should now be running on the following domain: `http://localhost:8080`
 
 ### Test links
-Get list of users who live in London
-`http://localhost:8080/users/liveincity/London`
-Get list of users who are currently positioned within 50 miles of London
-`http://localhost:8080/users/incityradius/London/50`
-Get list of users who either live in London or currently positioned within 50 miles of London
+Get list of users who live in London<br />
+`http://localhost:8080/users/liveincity/London`<br /><br />
+Get list of users who are currently positioned within 50 miles of London<br />
+`http://localhost:8080/users/incityradius/London/50`<br /><br />
+Get list of users who either live in London or currently positioned within 50 miles of London<br />
 `http://localhost:8080/users/getallincityradius/London/50`
 
 ## Running tests
