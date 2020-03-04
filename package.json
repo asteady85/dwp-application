@@ -1,0 +1,45 @@
+{
+  "name": "distance-calculator",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "nodemon server.js",
+    "lint": "eslint src/**/*.js",
+    "test": "jest --coverage --env=node --runInBand "
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "haversine-distance": "^1.1.6",
+    "nodemon": "^1.19.4",
+    "npm": "^6.13.7"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "jest": "^25.1.0",
+    "jest-environment-jsdom": "^24.9.0",
+    "jest-environment-jsdom-global": "^1.1.0",
+    "nock": "^11.7.0",
+    "supertest": "^4.0.2"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "delay": "3"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  }
+}
