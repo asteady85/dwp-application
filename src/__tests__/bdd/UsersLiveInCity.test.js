@@ -5,6 +5,8 @@ const server = require('../../../server');
 let userList = [];
 
 describe('GIVEN I want a list of users who live in a city', () => {
+	jest.setTimeout(20000); // wait for heroku to boot first time
+
 	beforeAll(async (done) => {
 		await axios.get('https://bpdts-test-app.herokuapp.com/city/London/users')
 			.then((response) => {

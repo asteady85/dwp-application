@@ -1,3 +1,4 @@
+const PropTypes = require('prop-types');
 const haversine = require('haversine-distance');
 
 // using the haversine formula to return distance from 2 co-ords in meters
@@ -13,3 +14,17 @@ const distanceBetweenPositionsMiles = (latLng1, latLng2) => {
 };
 
 module.exports = Object.create({ convertMetersToMiles, distanceBetweenPositionsMiles });
+
+haversineFormula.PropTypes = {
+	latLng1: PropTypes.number,
+	latLng2: PropTypes.number,
+};
+
+convertMetersToMiles.PropTypes = {
+	meters: PropTypes.number,
+};
+
+distanceBetweenPositionsMiles.PropTypes = {
+	latLng1: PropTypes.number,
+	latLng2: PropTypes.number,
+};

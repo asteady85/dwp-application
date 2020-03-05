@@ -1,4 +1,5 @@
 const axios = require('axios');
+const PropTypes = require('prop-types');
 const { cityLocations } = require('./positions');
 const { distanceBetweenPositionsMiles } = require('./distance');
 
@@ -72,3 +73,30 @@ const usersInCity = (city) => axios.get(`${domain}city/${city}/users`)
 module.exports = Object.create({
 	convertBpdtsUserObj, convertBpdtsUserData, uniqueUserList, usersInCity, usersNearCity,
 });
+
+convertBpdtsUserObj.PropTypes = {
+	obj: PropTypes.shape({
+		first_name: PropTypes.string,
+		last_name: PropTypes.string,
+		email: PropTypes.string,
+		latitude: PropTypes.number,
+		longitude: PropTypes.number,
+	}),
+};
+
+convertBpdtsUserData.PropTypes = {
+	data: PropTypes.arrayOf(PropTypes.object),
+};
+
+uniqueUserList.PropTypes = {
+	users: PropTypes.arrayOf(PropTypes.object),
+};
+
+usersInCity.PropTypes = {
+	city: PropTypes.arrayOf(PropTypes.string),
+};
+
+usersNearCity.PropTypes = {
+	city: PropTypes.arrayOf(PropTypes.string),
+	distanceMiles: PropTypes.arrayOf(PropTypes.number),
+};
